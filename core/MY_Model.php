@@ -706,11 +706,13 @@ class MY_Model extends CI_Model
         {
             if (is_array($row))
             {
-                $row[$column] = unserialize($row[$column]);
+            	if(isset($row[$column]))
+                	$row[$column] = unserialize($row[$column]);
             }
             else
             {
-                $row->$column = unserialize($row->$column);
+            	if(isset($row->$column))
+                	$row->$column = unserialize($row->$column);
             }
         }
 
